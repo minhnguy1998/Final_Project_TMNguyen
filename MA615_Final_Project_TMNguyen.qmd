@@ -1,0 +1,281 @@
+---
+title: "MA615 Final Project"
+author: "Truc Minh Nguyen"
+format: html
+editor: visual
+---
+
+
+The Purpose of this report will focus on EDA and modelling a dataset
+obtained regarding the Total capital stock for urban and rural areas in
+the Turks and Caicos. Most of the Key Facts about TCI EDA is shown in the Shiny App and the Presentation for other Key Facts about TCI. 
+
+```{r}
+#| echo: false
+
+library(tidyverse)
+# install.packages("sf")
+library(sf)
+# install.packages("rnaturalearth")
+# install.packages("rnaturalearthdata")
+library(rnaturalearth)
+library(rnaturalearthdata)
+# install.packages("tmap", dependencies = TRUE)
+library(tmap) # Optional for interactive maps
+library(corrplot)
+library(knitr)
+
+```
+
+
+
+# Let's retrieve spatial data for Turks and Caicos
+```{r}
+world <- ne_countries(scale = "medium", returnclass = "sf")
+turks_caicos <- world[world$name == "Turks and Caicos Is.", ]
+
+# Let's plot a simple map of the Turks and Caicos Islands using ggplot
+
+ggplot(data = turks_caicos) +
+  geom_sf(fill = "lightblue", color = "black") +
+  labs(
+    title = "Map of Turks and Caicos Islands",
+    caption = "Source: Natural Earth"
+  ) +
+  theme_minimal()
+
+
+# Let's create and interactive map using tmap:
+
+tmap_mode("view") # Set to interactive mode
+
+tm_shape(turks_caicos) +
+  tm_polygons(col = "lightblue", border.col = "black") +
+  tm_layout(title = "Interactive Map of Turks and Caicos Islands")
+
+```
+
+
+# GDP Data of the Turks and Caicos
+```{r}
+GDP <- read.csv("Turks_GDP.csv", header = TRUE)
+# Convert character column to Date format
+GDP$Date <- as.Date(GDP$Date, format = "%m/%d/%Y")
+
+# Extract only the Year
+GDP$Year <- format(GDP$Date, "%Y")
+
+GDP <- GDP %>%
+  rename(
+    GDP_billions_USD = GDP..Billions.of.US...,        
+    Per_Capita = Per.Capita..US... 
+  )
+GDP$Per_Capita_Scaled <- GDP$Per_Capita / 10000  # Scale down for visualization
+
+
+# Plot with adjusted y-axis limits
+# Rescale Per Capita to match the GDP scale
+GDP$Per_Capita_Scaled <- GDP$Per_Capita / 10000  # Adjust scaling
+
+GDP_long <- GDP %>%
+  pivot_longer(cols = c(GDP_billions_USD, Per_Capita_Scaled),
+               names_to = "Metric", values_to = "Value")
+
+# Updated Plot
+GDP_plot <- ggplot(GDP_long, aes(x = Year, y = Value, group = Metric)) +
+  # Bars for GDP
+  geom_bar(data = subset(GDP_long, Metric == "GDP_billions_USD"),
+           aes(fill = "GDP (Billions USD)"), 
+           stat = "identity", alpha = 0.7) +
+  # Line and points for Per Capita
+  geom_line(data = subset(GDP_long, Metric == "Per_Capita_Scaled"),
+            aes(color = "Per Capita (USD)"), size = 1) +
+  geom_point(data = subset(GDP_long, Metric == "Per_Capita_Scaled"),
+             aes(color = "Per Capita (USD)"), size = 2) +
+  # Define the y-axis and secondary axis
+  scale_y_continuous(
+    name = "GDP (Billions USD)", 
+    limits = c(0, 3.5),
+    sec.axis = sec_axis(~ . * 10000, name = "Per Capita (USD)")
+  ) +
+  # Single legend with manual color and fill labels
+  scale_fill_manual(name = "Metric", values = c("GDP (Billions USD)" = "skyblue")) +
+  scale_color_manual(name = "Metric", values = c("Per Capita (USD)" = "red")) +
+  
+  # Labels and theme
+  labs(
+    title = "GDP (Billions USD) and Per Capita (USD) Over the Years",
+    x = "Year",
+    y = "GDP (Billions USD)"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "top"  # Place legend at the top
+  )
+
+# Save the plot as a PNG image
+
+# Save the plot with a white background
+ggsave(
+  filename = "GDP_plot_white_bg.png",
+  plot = GDP_plot,
+  width = 10, 
+  height = 6,
+  units = "in",
+  dpi = 300,
+  bg = "white"  # Explicitly set background to white
+)
+
+```
+
+
+# Read in Capital Stock Data of TCI, create table of important variables and definitions
+```{r}
+TCI_stock <- read.csv("turks_model_df.csv", header = TRUE)
+
+variable_table <- data.frame(
+  "Important_Variables" = c("tot_cu","bed_prv_cu", "bed_pub_cu", "edu_prv_cu",
+                            "edu_pub_cu", "emp_agr_cu", "emp_gov_cu", "emp_ind_cu",
+                            "emp_ser_cu", "ic_high_cu", "ic_low_cu", "ic_mhg_cu",
+                            "ic_mlw_cu", "tot_cr","bed_prv_cr", "bed_pub_cr",
+                            "edu_prv_cr","edu_pub_cr", "emp_agr_cr",
+                            "emp_gov_cr","emp_ind_cr","emp_ser_cr", "ic_high_cr", 
+                            "ic_low_cr", "ic_mhg_cr","ic_mlw_cr"),
+  "Definitions" = c(
+    "Total capital stock urban (built environment) in million USD $",
+    "Health-private sector-capital stock urban (built environment) in million USD $",
+    "Health-public sector-capital stock urban (built environment) in million USD $",
+    "Education-private sector-capital stock urban (built environment) in million USD $",
+    "Education-public sector-capital stock urban (built environment) in million USD $",
+    "Employment-agricol sector-capital stock urban (built environment) in million USD $",
+    "Employment-government sector-capital stock urban (built environment) in million USD $",
+    "Employment-industrial sector-capital stock urban (built environment) in million USD $",
+    "Employment-service sector-capital stock urban (built environment) in million USD $",
+    "Housing-high income group-capital stock urban (built environment) in million USD $",
+    "Housing-low income group-capital stock urban (built environment) in million USD $",
+    "Housing-upper middle income group-capital stock urban (built environment) in million USD $",
+    "Housing-lower middle income group-capital stock urban (built environment) in million USD $",
+    "Total capital stock rural (built environment) in million USD $",
+    "Health-private sector-capital stock rural (built environment) in million USD $",
+    "Health-public sector-capital stock rural (built environment) in million USD $",
+    "Education-private sector-capital stock rural (built environment) in million USD $",
+    "Education-public sector-capital stock rural (built environment) in million USD $",
+    "Employment-agricol sector-capital stock rural (built environment) in million USD $",
+    "Employment-government sector-capital stock rural (built environment) in million USD $",
+    "Employment-industrial sector-capital stock rural (built environment) in million USD $",
+    "Employment-service sector-capital stock rural (built environment) in million USD $",
+    "Housing-high income group-capital stock rural (built environment) in million USD $",
+    "Housing-low income group-capital stock rural (built environment) in million USD $",
+    "Housing-upper middle income group-capital stock rural (built environment) in million USD $",
+    "Housing-lower middle income group-capital stock rural (built environment) in million USD $"
+    
+  )
+)
+
+# Print the table
+kable(variable_table, caption = "Important Variables and Definitions")
+
+```
+
+
+
+# Read in Capital Stock Data of TCI, look at correlation matrix :
+We are interested in doing a linear regression to see what predictors can accurately
+predict the Total Capital Stock for Urban and Rurul Locations in TCI. We will check 
+assumptions to be able to fit a linear model. 
+```{r}
+urban_predictors <- TCI_stock[,c("tot_cu","bed_prv_cu", "bed_pub_cu", "edu_prv_cu",
+                                 "edu_pub_cu", "emp_agr_cu", "emp_gov_cu", "emp_ind_cu",
+                                 "emp_ser_cu", "ic_high_cu", "ic_low_cu", "ic_mhg_cu",
+                                 "ic_mlw_cu")]
+cor_matrix <- cor(urban_predictors, use = "pairwise.complete.obs")
+urban_corrplot <- corrplot(cor_matrix, method = "color", type = "upper", tl.col = "black", tl.srt = 45)
+
+#let's repeat this step for rural predictors
+rural_predictors <- TCI_stock[,c("tot_cr","bed_prv_cr", "bed_pub_cr", "edu_prv_cr",
+                                 "edu_pub_cr", "emp_agr_cr", "emp_gov_cr", "emp_ind_cr",
+                                 "emp_ser_cr", "ic_high_cr", "ic_low_cr", "ic_mhg_cr",
+                                 "ic_mlw_cr")]
+cor_matrix2 <- cor(rural_predictors, use = "pairwise.complete.obs")
+urban_corrplot <- corrplot(cor_matrix2, method = "color", type = "upper", tl.col = "black", tl.srt = 45)
+
+```
+
+From this step, it seems like everything is highly correlated with each other and 
+there are some missing values. This is likely violating collinearity. But for the sake, 
+let's entertain some models. 
+```{r}
+# Let's start with all the private sector predictors, with high income on the urban stock
+urban_private_fit <- lm(tot_cu ~ bed_prv_cu + edu_prv_cu + emp_ind_cu + ic_high_cu, 
+                        data = TCI_stock)
+summary(urban_private_fit)
+
+# Let's continue with all the private sector predictors, with low income on the urban stock
+urban_public_fit <- lm(tot_cu ~ bed_pub_cu + edu_pub_cu + emp_ind_cu + ic_low_cu, 
+                        data = TCI_stock)
+summary(urban_public_fit)
+
+# Let's predict urban stocks using rural predictors, let's keep bed_prv_cu because 
+# significant predictor
+
+urban_combine_fit2 <- lm(tot_cu ~ bed_prv_cu + bed_pub_cr + edu_pub_cr + emp_ind_cr 
+                        + ic_high_cr + ic_low_cr,
+                        data = TCI_stock)
+summary(urban_combine_fit2)
+```
+It seems that the only significant predictors for the urban stock prediction model
+with low p-value is the bed_prv_cu variable (Health-private sector-capital stock 
+urban (built environment) in million USD $).Interesting to note that using rural 
+predictors to estimate urban stock price results in non NA results. This is probably 
+due to collinearity issue of using urban predictors to predict urban stocks.
+
+
+Let's do the Rural Modeling using Urban Predictors: 
+```{r}
+rural_fit <- lm(tot_cr ~ bed_prv_cr + bed_pub_cu + edu_prv_cu + emp_ind_cu + 
+                  ic_high_cu + ic_low_cu, 
+                        data = TCI_stock)
+summary(rural_fit)
+
+```
+
+
+When using urban predictors to predict rural stock, there are some NAs in model, so 
+it seems that there is more collinearity issue. 
+
+# Conclusion: 
+Due to time constraints, EDA was not able to be performed thoroughly to choose 
+the correct predictors and even the most appropriate model. Future works include 
+spend more time on EDA, doing literature review. 
+
+# References: 
+This section includes all citations for sources used in the report, shiny app, and
+presentation.
+
+[1] Stanford University. (n.d.). [GAR15 Global Exposure Dataset for Turks and Caicos Islands]. 
+Stanford Digital Repository. https://purl.stanford.edu/wb949hp4321
+[2] Worldometer. (n.d.). Dominican Republic GDP. Worldometer. Retrieved June 17, 2024, from
+https://www.worldometers.info/gdp/dominican-republic-gdp/
+[3] Macrotrends. (n.d.). Cuba GDP per capita 1960-2024. Macrotrends. Retrieved June 17, 2024, from
+https://www.macrotrends.net/global-metrics/countries/CUB/cuba/gdp-per-capita
+[4] Worldometer. (n.d.). Bahamas GDP. Worldometer. Retrieved June 17, 2024, from
+https://www.worldometers.info/gdp/bahamas-gdp/
+[5] Government of Turks and Caicos Islands. (2023). National tourism development 
+strategy and action plan 2023. Government of Turks and Caicos Islands. 
+Retrieved June 17, 2024, from
+https://gov.tc/tourismregulations/images/docs/TCI%20National%20Tourism%20Development%20Strategy%20and%20Action%20Plan%202023.pdf
+[6] Government of Turks and Caicos Islands. (n.d.). Turks and Caicos Islands statistics department. Government of Turks and Caicos Islands. Retrieved June 17, 2024, from https://www.gov.tc/stats/
+[7] Government of Turks and Caicos Islands. (n.d.). Cabinet. Government of Turks and Caicos Islands. Retrieved June 17, 2024, from https://www.gov.tc/premier/cabinet
+[8] Government of Turks and Caicos Islands. (n.d.). Tourism statistics. 
+Government of Turks and Caicos Islands. Retrieved June 17, 2024, from https://www.gov.tc/stats/statistics/economic/41-tourism
+[9] Encyclopaedia Britannica. (n.d.). Caribbean Sea. Encyclopaedia Britannica. 
+Retrieved June 17, 2024, from https://www.britannica.com/place/Caribbean-Sea
+[10] Central Intelligence Agency. (n.d.). Turks and Caicos Islands: Flag. 
+The World Factbook. Retrieved June 17, 2024, from
+https://www.cia.gov/the-world-factbook/countries/turks-and-caicos-islands/flag/
+
+
+
+
+

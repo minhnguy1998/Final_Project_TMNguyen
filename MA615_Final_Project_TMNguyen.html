@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Truc Minh Nguyen">
+
+<title>MA615 Final Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/clipboard/clipboard.min.js"></script>
+<script src="MA615_Final_Project_TMNguyen_files/libs/quarto-html/quarto.js"></script>
+<script src="MA615_Final_Project_TMNguyen_files/libs/quarto-html/popper.min.js"></script>
+<script src="MA615_Final_Project_TMNguyen_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="MA615_Final_Project_TMNguyen_files/libs/quarto-html/anchor.min.js"></script>
+<link href="MA615_Final_Project_TMNguyen_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="MA615_Final_Project_TMNguyen_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="MA615_Final_Project_TMNguyen_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="MA615_Final_Project_TMNguyen_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="MA615_Final_Project_TMNguyen_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="MA615_Final_Project_TMNguyen_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+
+<link href="MA615_Final_Project_TMNguyen_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/leaflet-1.3.1/leaflet.js"></script>
+
+<link href="MA615_Final_Project_TMNguyen_files/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/proj4-2.6.2/proj4.min.js"></script>
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+
+<link href="MA615_Final_Project_TMNguyen_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/leaflet-binding-2.2.2/leaflet.js"></script>
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+
+<script src="MA615_Final_Project_TMNguyen_files/libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MA615 Final Project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Truc Minh Nguyen </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The Purpose of this report will focus on EDA and modelling a dataset obtained regarding the Total capital stock for urban and rural areas in the Turks and Caicos. Most of the Key Facts about TCI EDA is shown in the Shiny App and the Presentation for other Key Facts about TCI.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'sf' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.12.2, GDAL 3.9.3, PROJ 9.4.1; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'rnaturalearth' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'rnaturalearthdata' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rnaturalearthdata'
+
+The following object is masked from 'package:rnaturalearth':
+
+    countries110</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tmap' was built under R version 4.4.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Breaking News: tmap 3.x is retiring. Please test v4, e.g. with
+remotes::install_github('r-tmap/tmap')
+corrplot 0.95 loaded</code></pre>
+</div>
+</div>
+<section id="lets-retrieve-spatial-data-for-turks-and-caicos" class="level1">
+<h1>Let’s retrieve spatial data for Turks and Caicos</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>turks_caicos <span class="ot">&lt;-</span> world[world<span class="sc">$</span>name <span class="sc">==</span> <span class="st">"Turks and Caicos Is."</span>, ]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's plot a simple map of the Turks and Caicos Islands using ggplot</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> turks_caicos) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Map of Turks and Caicos Islands"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: Natural Earth"</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="MA615_Final_Project_TMNguyen_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's create and interactive map using tmap:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"view"</span>) <span class="co"># Set to interactive mode</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>tmap mode set to interactive viewing</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(turks_caicos) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"lightblue"</span>, <span class="at">border.col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">title =</span> <span class="st">"Interactive Map of Turks and Caicos Islands"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-8eef4588ab03c501f9d3" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-8eef4588ab03c501f9d3">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"createMapPane","args":["tmap401",401]},{"method":"addProviderTiles","args":["Esri.WorldGrayCanvas",null,"Esri.WorldGrayCanvas",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["OpenStreetMap",null,"OpenStreetMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,"Esri.WorldTopoMap",{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"pane":"tilePane"}]},{"method":"addPolygons","args":[[[[{"lng":[-71.66142578124999,-71.66538085937499,-71.72177734374999,-71.83041992187499,-71.84765625,-71.80615234375,-71.66835937499999,-71.6369140625,-71.66142578124999],"lat":[21.76523437499999,21.751708984375,21.790234375,21.79062499999999,21.84345703125,21.852099609375,21.833447265625,21.787548828125,21.76523437499999]}],[{"lng":[-71.87993164062499,-71.8974609375,-71.95546874999999,-71.96376953124999,-71.98452148437499,-72.01904296875,-72.01064453124999,-71.93154296874999,-71.899609375,-71.87993164062499],"lat":[21.84042968749999,21.8298828125,21.86440429687499,21.892041015625,21.89340820312499,21.91826171875,21.950439453125,21.951904296875,21.8625,21.84042968749999]}],[{"lng":[-72.33281249999999,-72.21865234374999,-72.14980468749999,-72.14433593749999,-72.18154296874999,-72.190673828125,-72.30087890624999,-72.33544921875,-72.34238281249999,-72.33281249999999],"lat":[21.8513671875,21.79628906249999,21.8044921875,21.792724609375,21.780029296875,21.769775390625,21.75522460937499,21.7580078125,21.79531249999999,21.8513671875]}]]],"Admin.0.country","turks_caicos",{"interactive":true,"className":"","pane":"tmap401","stroke":true,"color":"#000000","weight":1,"opacity":1,"fill":true,"fillColor":"#ADD8E6","fillOpacity":1,"dashArray":"none","smoothFactor":1,"noClip":false},"<style> div.leaflet-popup-content {width:auto !important;overflow-y:auto; overflow-x:hidden;}<\/style><div style=\"max-height:25em;padding-right:15px;\"><table>\n\t\t\t   <thead><tr><th colspan=\"2\"><b>Admin-0 country<\/b><\/th><\/thead><\/tr><tr><td style=\"color: #888888;\"><nobr>featurecla<\/nobr><\/td><td align=\"right\"><nobr>Admin-0 country<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>scalerank<\/nobr><\/td><td align=\"right\"><nobr>3<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>labelrank<\/nobr><\/td><td align=\"right\"><nobr>6<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>sovereignt<\/nobr><\/td><td align=\"right\"><nobr>United Kingdom<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>sov_a3<\/nobr><\/td><td align=\"right\"><nobr>GB1<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_dif<\/nobr><\/td><td align=\"right\"><nobr>1<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>level<\/nobr><\/td><td align=\"right\"><nobr>2<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>type<\/nobr><\/td><td align=\"right\"><nobr>Dependency<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>tlc<\/nobr><\/td><td align=\"right\"><nobr>1<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>admin<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Islands<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>geou_dif<\/nobr><\/td><td align=\"right\"><nobr>0<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>geounit<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Islands<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>gu_a3<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>su_dif<\/nobr><\/td><td align=\"right\"><nobr>0<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>subunit<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Islands<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>su_a3<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>brk_diff<\/nobr><\/td><td align=\"right\"><nobr>0<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Is.<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_long<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Islands<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>brk_a3<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>brk_name<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Is.<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>brk_group<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>abbrev<\/nobr><\/td><td align=\"right\"><nobr>T.C. Is.<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>postal<\/nobr><\/td><td align=\"right\"><nobr>TC<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>formal_en<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Islands<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>formal_fr<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_ciawf<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Islands<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>note_adm0<\/nobr><\/td><td align=\"right\"><nobr>U.K.<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>note_brk<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_sort<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Islands<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_alt<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>mapcolor7<\/nobr><\/td><td align=\"right\"><nobr>6<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>mapcolor8<\/nobr><\/td><td align=\"right\"><nobr>6<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>mapcolor9<\/nobr><\/td><td align=\"right\"><nobr>6<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>mapcolor13<\/nobr><\/td><td align=\"right\"><nobr>3<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>pop_est<\/nobr><\/td><td align=\"right\"><nobr>38,191<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>pop_rank<\/nobr><\/td><td align=\"right\"><nobr>7<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>pop_year<\/nobr><\/td><td align=\"right\"><nobr>2,019<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>gdp_md<\/nobr><\/td><td align=\"right\"><nobr>1,197<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>gdp_year<\/nobr><\/td><td align=\"right\"><nobr>2,019<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>economy<\/nobr><\/td><td align=\"right\"><nobr>6. Developing region<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>income_grp<\/nobr><\/td><td align=\"right\"><nobr>2. High income: nonOECD<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fips_10<\/nobr><\/td><td align=\"right\"><nobr>TK<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>iso_a2<\/nobr><\/td><td align=\"right\"><nobr>TC<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>iso_a2_eh<\/nobr><\/td><td align=\"right\"><nobr>TC<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>iso_a3<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>iso_a3_eh<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>iso_n3<\/nobr><\/td><td align=\"right\"><nobr>796<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>iso_n3_eh<\/nobr><\/td><td align=\"right\"><nobr>796<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>un_a3<\/nobr><\/td><td align=\"right\"><nobr>796<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>wb_a2<\/nobr><\/td><td align=\"right\"><nobr>TC<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>wb_a3<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>woe_id<\/nobr><\/td><td align=\"right\"><nobr>23,424,962<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>woe_id_eh<\/nobr><\/td><td align=\"right\"><nobr>23,424,962<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>woe_note<\/nobr><\/td><td align=\"right\"><nobr>Exact WOE match as country<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_iso<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_diff<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_tlc<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_us<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_fr<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_ru<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_es<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_cn<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_tw<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_in<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_np<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_pk<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_de<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_gb<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_br<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_il<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_ps<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_sa<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_eg<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_ma<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_pt<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_ar<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_jp<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_ko<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_vn<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_tr<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_id<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_pl<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_gr<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_it<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_nl<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_se<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_bd<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_ua<\/nobr><\/td><td align=\"right\"><nobr>TCA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_un<\/nobr><\/td><td align=\"right\"><nobr>-99<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>adm0_a3_wb<\/nobr><\/td><td align=\"right\"><nobr>-99<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>continent<\/nobr><\/td><td align=\"right\"><nobr>North America<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>region_un<\/nobr><\/td><td align=\"right\"><nobr>Americas<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>subregion<\/nobr><\/td><td align=\"right\"><nobr>Caribbean<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>region_wb<\/nobr><\/td><td align=\"right\"><nobr>Latin America &amp; Caribbean<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_len<\/nobr><\/td><td align=\"right\"><nobr>20<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>long_len<\/nobr><\/td><td align=\"right\"><nobr>24<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>abbrev_len<\/nobr><\/td><td align=\"right\"><nobr>8<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>tiny<\/nobr><\/td><td align=\"right\"><nobr>-99<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>homepart<\/nobr><\/td><td align=\"right\"><nobr>-99<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>min_zoom<\/nobr><\/td><td align=\"right\"><nobr>0<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>min_label<\/nobr><\/td><td align=\"right\"><nobr>5<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>max_label<\/nobr><\/td><td align=\"right\"><nobr>10<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>label_x<\/nobr><\/td><td align=\"right\"><nobr>-71.75<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>label_y<\/nobr><\/td><td align=\"right\"><nobr>21.82<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>ne_id<\/nobr><\/td><td align=\"right\"><nobr>1,159 mln<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>wikidataid<\/nobr><\/td><td align=\"right\"><nobr>Q18221<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_ar<\/nobr><\/td><td align=\"right\"><nobr>جزر توركس وكايكوس<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_bn<\/nobr><\/td><td align=\"right\"><nobr>টার্কস ও কেইকোস দ্বীপপুঞ্জ<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_de<\/nobr><\/td><td align=\"right\"><nobr>Turks- und Caicosinseln<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_en<\/nobr><\/td><td align=\"right\"><nobr>Turks and Caicos Islands<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_es<\/nobr><\/td><td align=\"right\"><nobr>Islas Turcas y Caicos<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_fa<\/nobr><\/td><td align=\"right\"><nobr>جزایر تورکس و کایکوس<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_fr<\/nobr><\/td><td align=\"right\"><nobr>îles Turques-et-Caïques<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_el<\/nobr><\/td><td align=\"right\"><nobr>Τερκ και Κάικος<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_he<\/nobr><\/td><td align=\"right\"><nobr>איי טרקס וקייקוס<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_hi<\/nobr><\/td><td align=\"right\"><nobr>तुर्क और केकोस द्वीपसमूह<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_hu<\/nobr><\/td><td align=\"right\"><nobr>Turks- és Caicos-szigetek<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_id<\/nobr><\/td><td align=\"right\"><nobr>Kepulauan Turks dan Caicos<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_it<\/nobr><\/td><td align=\"right\"><nobr>Turks e Caicos<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_ja<\/nobr><\/td><td align=\"right\"><nobr>タークス・カイコス諸島<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_ko<\/nobr><\/td><td align=\"right\"><nobr>터크스 케이커스 제도<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_nl<\/nobr><\/td><td align=\"right\"><nobr>Turks- en Caicoseilanden<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_pl<\/nobr><\/td><td align=\"right\"><nobr>Turks i Caicos<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_pt<\/nobr><\/td><td align=\"right\"><nobr>Turks e Caicos<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_ru<\/nobr><\/td><td align=\"right\"><nobr>Тёркс и Кайкос<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_sv<\/nobr><\/td><td align=\"right\"><nobr>Turks- och Caicosöarna<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_tr<\/nobr><\/td><td align=\"right\"><nobr>Turks ve Caicos Adaları<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_uk<\/nobr><\/td><td align=\"right\"><nobr>Острови Теркс і Кайкос<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_ur<\/nobr><\/td><td align=\"right\"><nobr>جزائر کیکس و ترکیہ<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_vi<\/nobr><\/td><td align=\"right\"><nobr>Quần đảo Turks và Caicos<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_zh<\/nobr><\/td><td align=\"right\"><nobr>特克斯和凯科斯群岛<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>name_zht<\/nobr><\/td><td align=\"right\"><nobr>土克凱可群島<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_iso<\/nobr><\/td><td align=\"right\"><nobr>Admin-0 dependency<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>tlc_diff<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_tlc<\/nobr><\/td><td align=\"right\"><nobr>Admin-0 dependency<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_us<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_fr<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_ru<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_es<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_cn<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_tw<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_in<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_np<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_pk<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_de<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_gb<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_br<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_il<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_ps<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_sa<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_eg<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_ma<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_pt<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_ar<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_jp<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_ko<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_vn<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_tr<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_id<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_pl<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_gr<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_it<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_nl<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_se<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_bd<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><tr><td style=\"color: #888888;\"><nobr>fclass_ua<\/nobr><\/td><td align=\"right\"><nobr>NA<\/nobr><\/td><\/tr><\/table><\/div>",null,"Admin-0 country",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLayersControl","args":[["Esri.WorldGrayCanvas","OpenStreetMap","Esri.WorldTopoMap"],"turks_caicos",{"collapsed":true,"autoZIndex":true,"position":"topleft"}]}],"limits":{"lat":[21.751708984375,21.951904296875],"lng":[-72.34238281249999,-71.6369140625]},"fitBounds":[21.751708984375,-72.34238281249999,21.951904296875,-71.6369140625,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n\t\t\t\t\t\tfunction(el, x) {\n\t\t\t\t\t\t\tvar tldiv = el.getElementsByClassName(\"leaflet-top leaflet-left\")[0];\n\t\t\t\t\t\t\tvar titlediv = document.createElement('div');\n\t\t\t\t\t\t\ttitlediv.className = \"info legend leaflet-control\";\n\t\t\t\t\t\t\ttitlediv.innerHTML = \"<b>Interactive Map of Turks and Caicos Islands<\/b>\";\n\t\t\t\t\t\t\ttldiv.insertBefore(titlediv, tldiv.childNodes[0]);\n\t\t\t\t\t\t}).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+</div>
+</div>
+</section>
+<section id="gdp-data-of-the-turks-and-caicos" class="level1">
+<h1>GDP Data of the Turks and Caicos</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>GDP <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Turks_GDP.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert character column to Date format</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>GDP<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(GDP<span class="sc">$</span>Date, <span class="at">format =</span> <span class="st">"%m/%d/%Y"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract only the Year</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>GDP<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">format</span>(GDP<span class="sc">$</span>Date, <span class="st">"%Y"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>GDP <span class="ot">&lt;-</span> GDP <span class="sc">%&gt;%</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">GDP_billions_USD =</span> GDP..Billions.of.US...,        </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Per_Capita =</span> Per.Capita..US... </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>GDP<span class="sc">$</span>Per_Capita_Scaled <span class="ot">&lt;-</span> GDP<span class="sc">$</span>Per_Capita <span class="sc">/</span> <span class="dv">10000</span>  <span class="co"># Scale down for visualization</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot with adjusted y-axis limits</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Rescale Per Capita to match the GDP scale</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>GDP<span class="sc">$</span>Per_Capita_Scaled <span class="ot">&lt;-</span> GDP<span class="sc">$</span>Per_Capita <span class="sc">/</span> <span class="dv">10000</span>  <span class="co"># Adjust scaling</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>GDP_long <span class="ot">&lt;-</span> GDP <span class="sc">%&gt;%</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(GDP_billions_USD, Per_Capita_Scaled),</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Metric"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Updated Plot</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>GDP_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(GDP_long, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> Value, <span class="at">group =</span> Metric)) <span class="sc">+</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Bars for GDP</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">data =</span> <span class="fu">subset</span>(GDP_long, Metric <span class="sc">==</span> <span class="st">"GDP_billions_USD"</span>),</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">"GDP (Billions USD)"</span>), </span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Line and points for Per Capita</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">subset</span>(GDP_long, Metric <span class="sc">==</span> <span class="st">"Per_Capita_Scaled"</span>),</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Per Capita (USD)"</span>), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">subset</span>(GDP_long, Metric <span class="sc">==</span> <span class="st">"Per_Capita_Scaled"</span>),</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"Per Capita (USD)"</span>), <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define the y-axis and secondary axis</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"GDP (Billions USD)"</span>, </span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">3.5</span>),</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span> . <span class="sc">*</span> <span class="dv">10000</span>, <span class="at">name =</span> <span class="st">"Per Capita (USD)"</span>)</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Single legend with manual color and fill labels</span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">"Metric"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"GDP (Billions USD)"</span> <span class="ot">=</span> <span class="st">"skyblue"</span>)) <span class="sc">+</span></span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Metric"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Per Capita (USD)"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span></span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Labels and theme</span></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"GDP (Billions USD) and Per Capita (USD) Over the Years"</span>,</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"GDP (Billions USD)"</span></span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>  <span class="co"># Place legend at the top</span></span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot as a PNG image</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot with a white background</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"GDP_plot_white_bg.png"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> GDP_plot,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>, </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">units =</span> <span class="st">"in"</span>,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span>,</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">bg =</span> <span class="st">"white"</span>  <span class="co"># Explicitly set background to white</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="read-in-capital-stock-data-of-tci-create-table-of-important-variables-and-definitions" class="level1">
+<h1>Read in Capital Stock Data of TCI, create table of important variables and definitions</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>TCI_stock <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"turks_model_df.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>variable_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Important_Variables"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"tot_cu"</span>,<span class="st">"bed_prv_cu"</span>, <span class="st">"bed_pub_cu"</span>, <span class="st">"edu_prv_cu"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"edu_pub_cu"</span>, <span class="st">"emp_agr_cu"</span>, <span class="st">"emp_gov_cu"</span>, <span class="st">"emp_ind_cu"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"emp_ser_cu"</span>, <span class="st">"ic_high_cu"</span>, <span class="st">"ic_low_cu"</span>, <span class="st">"ic_mhg_cu"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"ic_mlw_cu"</span>, <span class="st">"tot_cr"</span>,<span class="st">"bed_prv_cr"</span>, <span class="st">"bed_pub_cr"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"edu_prv_cr"</span>,<span class="st">"edu_pub_cr"</span>, <span class="st">"emp_agr_cr"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"emp_gov_cr"</span>,<span class="st">"emp_ind_cr"</span>,<span class="st">"emp_ser_cr"</span>, <span class="st">"ic_high_cr"</span>, </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"ic_low_cr"</span>, <span class="st">"ic_mhg_cr"</span>,<span class="st">"ic_mlw_cr"</span>),</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Definitions"</span> <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Health-private sector-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Health-public sector-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Education-private sector-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Education-public sector-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employment-agricol sector-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employment-government sector-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employment-industrial sector-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employment-service sector-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Housing-high income group-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Housing-low income group-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Housing-upper middle income group-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Housing-lower middle income group-capital stock urban (built environment) in million USD $"</span>,</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Health-private sector-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Health-public sector-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Education-private sector-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Education-public sector-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employment-agricol sector-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employment-government sector-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employment-industrial sector-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Employment-service sector-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Housing-high income group-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Housing-low income group-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Housing-upper middle income group-capital stock rural (built environment) in million USD $"</span>,</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Housing-lower middle income group-capital stock rural (built environment) in million USD $"</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the table</span></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(variable_table, <span class="at">caption =</span> <span class="st">"Important Variables and Definitions"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Important Variables and Definitions</caption>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Important_Variables</th>
+<th style="text-align: left;">Definitions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">tot_cu</td>
+<td style="text-align: left;">Total capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bed_prv_cu</td>
+<td style="text-align: left;">Health-private sector-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bed_pub_cu</td>
+<td style="text-align: left;">Health-public sector-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">edu_prv_cu</td>
+<td style="text-align: left;">Education-private sector-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">edu_pub_cu</td>
+<td style="text-align: left;">Education-public sector-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">emp_agr_cu</td>
+<td style="text-align: left;">Employment-agricol sector-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">emp_gov_cu</td>
+<td style="text-align: left;">Employment-government sector-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">emp_ind_cu</td>
+<td style="text-align: left;">Employment-industrial sector-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">emp_ser_cu</td>
+<td style="text-align: left;">Employment-service sector-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ic_high_cu</td>
+<td style="text-align: left;">Housing-high income group-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ic_low_cu</td>
+<td style="text-align: left;">Housing-low income group-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ic_mhg_cu</td>
+<td style="text-align: left;">Housing-upper middle income group-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ic_mlw_cu</td>
+<td style="text-align: left;">Housing-lower middle income group-capital stock urban (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tot_cr</td>
+<td style="text-align: left;">Total capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bed_prv_cr</td>
+<td style="text-align: left;">Health-private sector-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">bed_pub_cr</td>
+<td style="text-align: left;">Health-public sector-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">edu_prv_cr</td>
+<td style="text-align: left;">Education-private sector-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">edu_pub_cr</td>
+<td style="text-align: left;">Education-public sector-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">emp_agr_cr</td>
+<td style="text-align: left;">Employment-agricol sector-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">emp_gov_cr</td>
+<td style="text-align: left;">Employment-government sector-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">emp_ind_cr</td>
+<td style="text-align: left;">Employment-industrial sector-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">emp_ser_cr</td>
+<td style="text-align: left;">Employment-service sector-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ic_high_cr</td>
+<td style="text-align: left;">Housing-high income group-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ic_low_cr</td>
+<td style="text-align: left;">Housing-low income group-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ic_mhg_cr</td>
+<td style="text-align: left;">Housing-upper middle income group-capital stock rural (built environment) in million USD $</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ic_mlw_cr</td>
+<td style="text-align: left;">Housing-lower middle income group-capital stock rural (built environment) in million USD $</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="read-in-capital-stock-data-of-tci-look-at-correlation-matrix" class="level1">
+<h1>Read in Capital Stock Data of TCI, look at correlation matrix :</h1>
+<p>We are interested in doing a linear regression to see what predictors can accurately predict the Total Capital Stock for Urban and Rurul Locations in TCI. We will check assumptions to be able to fit a linear model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>urban_predictors <span class="ot">&lt;-</span> TCI_stock[,<span class="fu">c</span>(<span class="st">"tot_cu"</span>,<span class="st">"bed_prv_cu"</span>, <span class="st">"bed_pub_cu"</span>, <span class="st">"edu_prv_cu"</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"edu_pub_cu"</span>, <span class="st">"emp_agr_cu"</span>, <span class="st">"emp_gov_cu"</span>, <span class="st">"emp_ind_cu"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"emp_ser_cu"</span>, <span class="st">"ic_high_cu"</span>, <span class="st">"ic_low_cu"</span>, <span class="st">"ic_mhg_cu"</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"ic_mlw_cu"</span>)]</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>cor_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(urban_predictors, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in cor(urban_predictors, use = "pairwise.complete.obs"): the standard
+deviation is zero</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>urban_corrplot <span class="ot">&lt;-</span> <span class="fu">corrplot</span>(cor_matrix, <span class="at">method =</span> <span class="st">"color"</span>, <span class="at">type =</span> <span class="st">"upper"</span>, <span class="at">tl.col =</span> <span class="st">"black"</span>, <span class="at">tl.srt =</span> <span class="dv">45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="MA615_Final_Project_TMNguyen_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let's repeat this step for rural predictors</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>rural_predictors <span class="ot">&lt;-</span> TCI_stock[,<span class="fu">c</span>(<span class="st">"tot_cr"</span>,<span class="st">"bed_prv_cr"</span>, <span class="st">"bed_pub_cr"</span>, <span class="st">"edu_prv_cr"</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"edu_pub_cr"</span>, <span class="st">"emp_agr_cr"</span>, <span class="st">"emp_gov_cr"</span>, <span class="st">"emp_ind_cr"</span>,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"emp_ser_cr"</span>, <span class="st">"ic_high_cr"</span>, <span class="st">"ic_low_cr"</span>, <span class="st">"ic_mhg_cr"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"ic_mlw_cr"</span>)]</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>cor_matrix2 <span class="ot">&lt;-</span> <span class="fu">cor</span>(rural_predictors, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in cor(rural_predictors, use = "pairwise.complete.obs"): the standard
+deviation is zero</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>urban_corrplot <span class="ot">&lt;-</span> <span class="fu">corrplot</span>(cor_matrix2, <span class="at">method =</span> <span class="st">"color"</span>, <span class="at">type =</span> <span class="st">"upper"</span>, <span class="at">tl.col =</span> <span class="st">"black"</span>, <span class="at">tl.srt =</span> <span class="dv">45</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="MA615_Final_Project_TMNguyen_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>From this step, it seems like everything is highly correlated with each other and there are some missing values. This is likely violating collinearity. But for the sake, let’s entertain some models.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's start with all the private sector predictors, with high income on the urban stock</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>urban_private_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_cu <span class="sc">~</span> bed_prv_cu <span class="sc">+</span> edu_prv_cu <span class="sc">+</span> emp_ind_cu <span class="sc">+</span> ic_high_cu, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> TCI_stock)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(urban_private_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in summary.lm(urban_private_fit): essentially perfect fit: summary may
+be unreliable</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = tot_cu ~ bed_prv_cu + edu_prv_cu + emp_ind_cu + 
+    ic_high_cu, data = TCI_stock)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-5.737e-14  8.550e-16  8.550e-16  8.550e-16  2.623e-15 
+
+Coefficients: (3 not defined because of singularities)
+              Estimate Std. Error    t value Pr(&gt;|t|)    
+(Intercept) -1.302e-15  8.830e-16 -1.475e+00    0.145    
+bed_prv_cu   2.997e+03  1.183e-13  2.534e+16   &lt;2e-16 ***
+edu_prv_cu          NA         NA         NA       NA    
+emp_ind_cu          NA         NA         NA       NA    
+ic_high_cu          NA         NA         NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.173e-15 on 65 degrees of freedom
+Multiple R-squared:      1, Adjusted R-squared:      1 
+F-statistic: 6.421e+32 on 1 and 65 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's continue with all the private sector predictors, with low income on the urban stock</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>urban_public_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_cu <span class="sc">~</span> bed_pub_cu <span class="sc">+</span> edu_pub_cu <span class="sc">+</span> emp_ind_cu <span class="sc">+</span> ic_low_cu, </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> TCI_stock)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(urban_public_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in summary.lm(urban_public_fit): essentially perfect fit: summary may
+be unreliable</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = tot_cu ~ bed_pub_cu + edu_pub_cu + emp_ind_cu + 
+    ic_low_cu, data = TCI_stock)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-9.487e-15 -7.250e-16 -7.250e-16 -7.250e-16  5.586e-14 
+
+Coefficients: (3 not defined because of singularities)
+             Estimate Std. Error   t value Pr(&gt;|t|)    
+(Intercept) 4.340e-16  8.696e-16 4.990e-01    0.619    
+bed_pub_cu  6.581e+02  2.558e-14 2.573e+16   &lt;2e-16 ***
+edu_pub_cu         NA         NA        NA       NA    
+emp_ind_cu         NA         NA        NA       NA    
+ic_low_cu          NA         NA        NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.064e-15 on 65 degrees of freedom
+Multiple R-squared:      1, Adjusted R-squared:      1 
+F-statistic: 6.62e+32 on 1 and 65 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's predict urban stocks using rural predictors, let's keep bed_prv_cu because </span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># significant predictor</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>urban_combine_fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_cu <span class="sc">~</span> bed_prv_cu <span class="sc">+</span> bed_pub_cr <span class="sc">+</span> edu_pub_cr <span class="sc">+</span> emp_ind_cr </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                        <span class="sc">+</span> ic_high_cr <span class="sc">+</span> ic_low_cr,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> TCI_stock)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(urban_combine_fit2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in summary.lm(urban_combine_fit2): essentially perfect fit: summary may
+be unreliable</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = tot_cu ~ bed_prv_cu + bed_pub_cr + edu_pub_cr + 
+    emp_ind_cr + ic_high_cr + ic_low_cr, data = TCI_stock)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-5.396e-14 -7.250e-16  3.300e-16  2.363e-15  4.253e-15 
+
+Coefficients:
+              Estimate Std. Error    t value Pr(&gt;|t|)    
+(Intercept) -1.736e-15  9.743e-16 -1.782e+00   0.0798 .  
+bed_prv_cu   2.997e+03  1.303e-13  2.300e+16   &lt;2e-16 ***
+bed_pub_cr   3.846e-11  2.728e-11  1.410e+00   0.1638    
+edu_pub_cr  -8.751e-13  1.630e-12 -5.370e-01   0.5932    
+emp_ind_cr   3.503e-13  3.962e-13  8.840e-01   0.3801    
+ic_high_cr   5.033e-14  6.755e-13  7.500e-02   0.9409    
+ic_low_cr   -1.265e-12  2.483e-12 -5.100e-01   0.6122    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.245e-15 on 60 degrees of freedom
+Multiple R-squared:      1, Adjusted R-squared:      1 
+F-statistic: 1.049e+32 on 6 and 60 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>It seems that the only significant predictors for the urban stock prediction model with low p-value is the bed_prv_cu variable (Health-private sector-capital stock urban (built environment) in million USD $).Interesting to note that using rural predictors to estimate urban stock price results in non NA results. This is probably due to collinearity issue of using urban predictors to predict urban stocks.</p>
+<p>Let’s do the Rural Modeling using Urban Predictors:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>rural_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_cr <span class="sc">~</span> bed_prv_cr <span class="sc">+</span> bed_pub_cu <span class="sc">+</span> edu_prv_cu <span class="sc">+</span> emp_ind_cu <span class="sc">+</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                  ic_high_cu <span class="sc">+</span> ic_low_cu, </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> TCI_stock)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rural_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = tot_cr ~ bed_prv_cr + bed_pub_cu + edu_prv_cu + 
+    emp_ind_cu + ic_high_cu + ic_low_cu, data = TCI_stock)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.155136 -0.070513 -0.002824  0.083679  0.154560 
+
+Coefficients: (4 not defined because of singularities)
+              Estimate Std. Error  t value Pr(&gt;|t|)    
+(Intercept)  3.689e-03  1.232e-02    0.299    0.766    
+bed_prv_cr   2.999e+03  1.189e+00 2522.634   &lt;2e-16 ***
+bed_pub_cu  -3.872e-01  3.563e-01   -1.087    0.281    
+edu_prv_cu          NA         NA       NA       NA    
+emp_ind_cu          NA         NA       NA       NA    
+ic_high_cu          NA         NA       NA       NA    
+ic_low_cu           NA         NA       NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.09278 on 64 degrees of freedom
+Multiple R-squared:      1, Adjusted R-squared:      1 
+F-statistic: 3.579e+06 on 2 and 64 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>When using urban predictors to predict rural stock, there are some NAs in model, so it seems that there is more collinearity issue.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion:</h1>
+<p>Due to time constraints, EDA was not able to be performed thoroughly to choose the correct predictors and even the most appropriate model. Future works include spend more time on EDA, doing literature review.</p>
+</section>
+<section id="references" class="level1">
+<h1>References:</h1>
+<p>This section includes all citations for sources used in the report, shiny app, and presentation.</p>
+<p>[1] Stanford University. (n.d.). [GAR15 Global Exposure Dataset for Turks and Caicos Islands]. Stanford Digital Repository. https://purl.stanford.edu/wb949hp4321 [2] Worldometer. (n.d.). Dominican Republic GDP. Worldometer. Retrieved June 17, 2024, from https://www.worldometers.info/gdp/dominican-republic-gdp/ [3] Macrotrends. (n.d.). Cuba GDP per capita 1960-2024. Macrotrends. Retrieved June 17, 2024, from https://www.macrotrends.net/global-metrics/countries/CUB/cuba/gdp-per-capita [4] Worldometer. (n.d.). Bahamas GDP. Worldometer. Retrieved June 17, 2024, from https://www.worldometers.info/gdp/bahamas-gdp/ [5] Government of Turks and Caicos Islands. (2023). National tourism development strategy and action plan 2023. Government of Turks and Caicos Islands. Retrieved June 17, 2024, from https://gov.tc/tourismregulations/images/docs/TCI%20National%20Tourism%20Development%20Strategy%20and%20Action%20Plan%202023.pdf [6] Government of Turks and Caicos Islands. (n.d.). Turks and Caicos Islands statistics department. Government of Turks and Caicos Islands. Retrieved June 17, 2024, from https://www.gov.tc/stats/ [7] Government of Turks and Caicos Islands. (n.d.). Cabinet. Government of Turks and Caicos Islands. Retrieved June 17, 2024, from https://www.gov.tc/premier/cabinet [8] Government of Turks and Caicos Islands. (n.d.). Tourism statistics. Government of Turks and Caicos Islands. Retrieved June 17, 2024, from https://www.gov.tc/stats/statistics/economic/41-tourism [9] Encyclopaedia Britannica. (n.d.). Caribbean Sea. Encyclopaedia Britannica. Retrieved June 17, 2024, from https://www.britannica.com/place/Caribbean-Sea [10] Central Intelligence Agency. (n.d.). Turks and Caicos Islands: Flag. The World Factbook. Retrieved June 17, 2024, from https://www.cia.gov/the-world-factbook/countries/turks-and-caicos-islands/flag/</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

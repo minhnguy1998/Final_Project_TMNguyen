@@ -1,0 +1,107 @@
+---
+title: "The Turks and Caicos Islands"
+author: "Truc Minh Nguyen"
+format: pptx
+editor: visual
+---
+
+# Overview
+
+-   **Key facts**:
+
+    -   History
+    -   Geography
+    -   Government
+    -   Economy
+
+-   **Comparisons with Surrounding Islands**
+
+-   **Strength, Weakness, Opportunities, Threats (SWOT)**
+
+# History
+-   **500-900 AD:**
+    -   The first known inhabitants, Lucayans, arrived via Hispaniola.
+-   **1500 - 1550s:**
+    -   Spanish explorer Ponce de Leon stopped in the islands.
+    -   Complete disappearance of the Lucayans.
+-   **1764:**
+    -   Britain claimed ownership of the TCI under UK colony of Jamaica.
+-   **1962**
+    -   After Jamaican independence, the TCI remained a British Colony.
+
+# Geography
+-   The TCI consists of 2 groups southeast of The Bahamas.
+-   **The Turks group:**
+    -   Grand Turk Island, Salt Cay, and lesser cays.
+-   **The Caicos group** located northwest of the Turks
+    -   South, East, Middle, North, and West Caicos
+    -   Providenciales (Provo)
+-   Population mostly resides on South Caicos, Provo, and Grand Turk.
+-   **Capital:** Cockburn Town, located in the Grand Turk.
+
+# Map of the Turks and Caicos Islands - Surrounding
+
+![Reference Map](C:/Users/minh8/Documents/R mssp/MA615/Final_Project/Final_Project_TMNguyen/surrounding_turks_map.png)
+
+# Map of the Turks and Caicos Islands - Satellite
+
+![Satellite Map](C:/Users/minh8/Documents/R mssp/MA615/Final_Project/Final_Project_TMNguyen/caicos_islands_satellite.png)
+
+# Government: 3 Branches
+-   **Executive:**
+    -   Chief of State (Monarch of the UK)
+    -   Governor
+    -   Cabinet
+-   **Legislative:**
+    -   House of Assembly (21 seats) and Legal System
+-   **Judicial:**
+    -   Supreme Court (Chief Justice + judges)
+    -   Court of Appeal (Court President + 2 justices)
+    -   Magistrates' Courts
+
+# Economy
+
+-   **Main Currency:** USD
+-   **Main Revenue:** Tourism
+    -   90.6% of GDP in the services industry as of 2017
+    -   Visitor counts decreased in 2020 due to the Covid-19 Pandemic
+    -   Unsure why the visitor count decreased in 2022
+
+# TCI Visitor Data over the Years
+
+![Turks and Caicos Per Capita Graph](C:/Users/minh8/Documents/R mssp/MA615/Final_Project/Final_Project_TMNguyen/tourism_turks.png)
+
+# GDP per Capita - Turks and Caicos
+![Turks GDP](C:/Users/minh8/Documents/R mssp/MA615/Final_Project/Final_Project_TMNguyen/per_capita_turks.png)
+
+# GDP per Capita - Bahamas
+![Bahamas GDP](C:/Users/minh8/Documents/R mssp/MA615/Final_Project/Final_Project_TMNguyen/per_capita_bahamas.png)
+
+# GDP per Capita - Cuba
+![Cuba GDP](C:/Users/minh8/Documents/R mssp/MA615/Final_Project/Final_Project_TMNguyen/per_capita_cuba.png)
+
+# GDP per Capita - Dominican Republic
+![Dominican GDP](C:/Users/minh8/Documents/R mssp/MA615/Final_Project/Final_Project_TMNguyen/per_capita_dominican.png)
+
+# GDP Comparisons
+- It appears that the TCI's GDP trend throughout the years is most similar to the Bahamas, making it a competitor to look out for. The values are close, however, it appears that the Bahamas generally has higher GDP per Capita overall than TCI. 
+- TCI has much higher GDP per capita when compared to Cuba and the Dominican Republic.
+However, Cuba and Dominican Republic appear to have similar GDP per Capita trends. 
+Perhaps this could be due to the location. The Turks and Caicos and Bahamas are located
+northeast compared to Cuba and Dominican Republic (southwest).
+
+
+# Strength, Weakness, Opportunities, Threats (SWOT)
+![SWOT Chart](C:/Users/minh8/Documents/R mssp/MA615/Final_Project/Final_Project_TMNguyen/swot.png)
+
+# Conclusion 
+
+- TCI share similar government to the U.S (both originated from Britain)
+- Its GDP per Capita is competitive compared to surrounding islands
+- **SWOT:**
+  - **Strengths:** high end beaches and resorts bring in tourism
+  - **Weaknesses:** limited diversity of attractions (mainly sea activities)
+  - **Opportunities:** The data-driven Market Intelligence Unit is utilizing data to 
+                    place competitive edge for TCI over competitors
+  - **Threats:** Vulnerable to natural disasters such as hurricanes
+---
